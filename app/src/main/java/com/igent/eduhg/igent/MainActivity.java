@@ -84,6 +84,10 @@ public class MainActivity extends AppCompatActivity {
         if(res_id==R.id.action_settings) {
             Toast.makeText(getApplicationContext(), "You selected settings", Toast.LENGTH_LONG).show();
         }
+
+        if(res_id==R.id.navigate) {
+            startActivity(new Intent(this, SubActivity.class));
+        }
         return true;
     }
 }

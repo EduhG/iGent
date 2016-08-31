@@ -12,4 +12,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="MyToolBarTheme" parent="ThemeOverlay.AppCompat.Dark">
+        <!--change toolbar text color-->
+        <item name="android:textColorPrimary">#FFF</item>
+        <!--change overflows icons color-->
+        <item name="android:textColorSecondary">#FFF</item>
+    </style>
+
 </resources>
