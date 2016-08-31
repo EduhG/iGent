@@ -1,6 +1,8 @@
 package com.igent.eduhg.igent;
 
 import android.content.Intent;
+import android.support.v4.app.NavUtils;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -20,6 +22,15 @@ public class SubActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
+
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        NavigationDrawerFragment drawerFragment = (NavigationDrawerFragment)
+                getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
+
+        drawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout)findViewById(R.id.drawer_layout), toolbar);
     }
 
     @Override
@@ -35,6 +46,10 @@ public class SubActivity extends AppCompatActivity {
         int res_id = item.getItemId();
         if(res_id==R.id.action_settings) {
             Toast.makeText(getApplicationContext(), "You selected settings", Toast.LENGTH_LONG).show();
+        }
+
+        if(res_id==android.R.id.home) {
+            NavUtils.navigateUpFromSameTask(this);
         }
 
         return true;
